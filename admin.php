@@ -26,9 +26,7 @@ include('server.php');
 		<div class="input-group">
 			<button type="submit" class="btn" name="login_user">Proceed to login</button>
 		</div>
-		<p>
-			<a href="post.php">Post page</a>
-		</p>
+		
 	</form>
 </body>
 

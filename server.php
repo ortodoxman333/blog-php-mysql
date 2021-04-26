@@ -1,16 +1,18 @@
 <?php
+include 'db.php';
+
 session_start();
 
 $username = "";
 $password = "";
 $errors = array();
+$update = false;
 
 $title = "";
 $content = "";
 $date = "";
 $imageURL = "";
 
-$db = mysqli_connect('localhost', 'root', '', 'moja baza');
 
 if (isset($_POST['reg_user'])) {
 
@@ -76,26 +78,56 @@ if (isset($_POST['login_user'])) {
     }
 }
 
-//post.php 
-if (isset($_POST['btn_publish'])) {
+if (isset($_POST['save'])) {
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $date = $_POST['date'];
+    $image = $_FILES['imagefile']['tmp_name'];
+    //$name = $_FILES['imagefile']['name'];
+    $type = $_FILES['imagefile']['type'];
+    header('Content-Type: application/json');
+    $image = 'data:' . $type . ';base64,' . base64_encode(file_get_contents($image));
+    // echo json_encode(['type' => $type, 'image' => $image]);
+    // die;
+    // $image = file_get_contents(addslashes($_FILES['image']['tmp_name']));
+    mysqli_query($db, "INSERT INTO posts(title, content, date, imageURL, type) 
+    VALUES('$title', '$content', '$date', '$image','$type')");
+    $_SESSION['message'] = "Post is saved.";
+    header('location: post.php');
+}
 
-    $title = mysqli_real_escape_string($db, $_POST['title']);
-    $content = mysqli_real_escape_string($db, $_POST['content']);
-    $date = mysqli_real_escape_string($db, $_POST['date']);
-    $imageURL = mysqli_real_escape_string($db, $_POST['image']);
+if (isset($_GET['del'])) {
+    $id = $_GET['del'];
+    mysqli_query($db, "DELETE FROM posts WHERE id=$id");
+    $_SESSION['message'] = "Post is deleted.";
+    header('location: post.php');
+}
 
-    $posts_check_query = "SELECT * FROM posts WHERE title='$title' OR content='$content' OR date='$date' OR image='$imageURL' LIMIT 1";
-    $result = mysqli_query($db, $posts_check_query);
-    $posts = mysqli_fetch_assoc($result);
+if (isset($_GET['edit'])) {
+    $id = $_GET['edit'];
+    $update = true;
+    $record = mysqli_query($db, "SELECT * FROM posts WHERE id=$id");
 
-    $query = "INSERT INTO posts (title, content, date, image ) 
-        VALUES('$title', '$content', '$date', '$imageURL' )";
-    mysqli_query($db, $query);
-    $_SESSION['title'] = $title;
-    $_SESSION['content'] = $content;
-    $_SESSION['date'] = $date;
-    $_SESSION['image'] = $imageURL;
+    $n = mysqli_fetch_array($record);
 
-    $_SESSION['success'] = "Post dodan";
-    header('location: index.php');
+    header('location: add_post.php');
+    $_SESSION['message'] = $title;
+    $title = $n['title'];
+}
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $date = $_POST['date'];
+    $imageURL = $_POST['imageURL'];
+
+    mysqli_query($db, "UPDATE posts SET title='$title', content='$content', date='$date', imageURL='$imageURL' WHERE id=$id");
+    $_SESSION['message'] = "Post is updated!";
+    header('location: post.php');
+}
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header("location: admin.php");
 }

@@ -32,13 +32,15 @@ body {
 
   background: #333333;
 }
-form,
-.content {
+form {
   max-width: 264px;
   width: 100%;
   margin: 0px auto;
 
   border-radius: 0px 0px 10px 10px;
+}
+content {
+  margin-left: 40px;
 }
 .input-group {
   margin: 12px 0px;
@@ -113,12 +115,68 @@ form,
   margin-left: 20%;
   color: #ffffff;
 }
-.h2 {
+/* list page */
+.posts-table {
+  width: 780px !important;
+  margin: 0 auto 0 20%;
+  border-collapse: collapse;
+
+  background: #ffffff;
+  border: 1px solid rgba(183, 210, 229, 0.8);
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.posts-table th {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  color: #8dabc4;
+  text-align: left;
+  padding: 12px 20px;
+}
+
+.posts-table th:nth-child(3) {
+  text-align: right;
+}
+
+.posts-table tr {
+  border-bottom: 1px solid #d8e5ee;
+}
+
+.posts-table td {
+  padding: 12px 20px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #3f536e;
+}
+
+.posts-table .actions {
+  display: flex;
+  gap: 21px;
+  align-items: center;
+}
+
+.list-title {
+  margin-left: 20%;
+  margin-bottom: 16px;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+
+  color: #2c405a;
+}
+/*post page */
+
+.page-title {
   position: absolute;
   width: 98px;
   height: 23px;
-  left: 330px;
-  top: 80px;
+  margin-left: 20%;
+  top: 77px;
+
+  font-family: Heebo;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -126,9 +184,392 @@ form,
 
   color: #2c405a;
 }
-.input-groupe input {
+
+.post-title {
+  position: absolute;
+  left: 20%;
+  top: 21.4%;
+  bottom: 75.09%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+
+  color: #8dabc4;
+}
+.title-input {
+  position: absolute;
+  padding: 8px 15px;
+  width: 529px;
+  left: 20%;
+  right: 40.35%;
+  top: 25.83%;
+  bottom: 67.53%;
+
   background: #ffffff;
   border: 1px solid #a8c6df;
   box-sizing: border-box;
   border-radius: 4px;
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+}
+.content-title {
+  position: absolute;
+  left: 20%;
+  right: 43.75%;
+  top: 36.16%;
+  bottom: 60.33%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+
+  color: #8dabc4;
+}
+.content-area {
+  position: absolute;
+  padding: 8px 15px;
+  width: 529px;
+  height: 265px;
+  left: 20%;
+  right: 40.35%;
+  top: 40.59%;
+  bottom: 10.52%;
+
+  background: #ffffff;
+  border: 1px solid #a8c6df;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.date-title {
+  position: absolute;
+  width: 234px;
+  height: 19px;
+  left: 68%;
+  right: 22.92%;
+  top: 21.4%;
+  bottom: 75.09%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+
+  color: #8dabc4;
+}
+.date-input {
+  position: absolute;
+  width: 234px;
+  height: 36px;
+  padding: 8px 15px;
+
+  left: 68%;
+  right: 22.92%;
+  top: 25.83%;
+  bottom: 67.53%;
+
+  background: #ffffff;
+  border: 1px solid #a8c6df;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.image-title {
+  position: absolute;
+  left: 68%;
+  right: 22.92%;
+  top: 36.16%;
+  bottom: 60.33%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+  color: #8dabc4;
+}
+.btn_cancel {
+  position: absolute;
+  width: 84px;
+  height: 36px;
+  left: 68%;
+  right: 22.92%;
+  top: 89.67%;
+  bottom: 3.69%;
+
+  background: #4f4f4f;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  box-shadow: inset -1px 1px 0px rgba(255, 255, 255, 0.0001);
+  border-radius: 4px;
+  color: white;
+}
+.btn_publish {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  width: 134px;
+  height: 36px;
+  left: 77%;
+  right: 22%;
+  top: 89.48%;
+  bottom: 3.87%;
+  color: white;
+  background: #4ece3d;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.btn_publish img {
+  width: 10px;
+  height: 10px;
+  margin-right: 13px;
+}
+
+.img-place {
+  position: absolute;
+  width: 234px;
+  height: 168px;
+  left: 68%;
+  right: 22.92%;
+  top: 250px;
+
+  background: url(javascript.png);
+}
+.img-placee {
+  position: absolute;
+  width: 234px;
+  height: 168px;
+  left: 68%;
+  right: 22.92%;
+  top: 450px;
+}
+.logout-btn {
+  position: absolute;
+  width: 84px;
+  height: 36px;
+  left: 80.25%;
+  right: 22.92%;
+  top: 2.44%;
+  bottom: 87.04%;
+  color: white;
+
+  background: #4f4f4f;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  box-shadow: inset -1px 1px 0px rgba(255, 255, 255, 0.0001);
+  border-radius: 4px;
+}
+.new-post-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  left: 67.2%;
+  top: 2.44%;
+  color: white;
+  padding: 8px 14px;
+
+  background: #4ece3d;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.new-post-btn img {
+  width: 10px;
+  height: 10px;
+  margin-right: 9.9px;
+}
+.publish {
+  position: absolute;
+  width: 94px;
+  height: 19px;
+  left: 68%;
+  right: 32.64%;
+  top: 76.51%;
+  bottom: 23.99%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+
+  color: #2d9cdb;
+}
+.publish1 {
+  position: absolute;
+  width: 94px;
+  height: 19px;
+  left: 80.8%;
+  right: 22.92%;
+  top: 76.51%;
+  bottom: 23.99%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  color: #eb5757;
+}
+
+.msg {
+  top: 88px;
+  margin-left: 2%;
+  padding: 5px;
+  border-radius: 5px;
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #4ece3d;
+  width: 150px;
+  height: 36px;
+  text-align: center;
+}
+.btn_update {
+  position: absolute;
+  width: 134px;
+  height: 36px;
+  left: 77%;
+  right: 22%;
+  top: 89.48%;
+  bottom: 3.87%;
+  color: white;
+  background: #4ece3d;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.contentt {
+  position: absolute;
+  width: 234px;
+  height: 19px;
+  left: 80%;
+  right: 22.92%;
+  top: 21px;
+  bottom: 75.09%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+
+  color: #8dabc4;
+}
+
+.content-row {
+  margin-left: 621px;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: flex-end;
+
+  color: #3f536e;
+}
+.imgURLimg {
+  position: absolute;
+  width: 234px;
+  height: 19px;
+  left: 92%;
+  right: 22.92%;
+  top: 21px;
+  bottom: 75.09%;
+
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+
+  display: flex;
+  align-items: center;
+
+  color: #8dabc4;
+}
+
+.pozdrav {
+  text-align: center;
+}
+
+.posts-preview-table {
+  width: 780px !important;
+  margin: 0 auto 0 20%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid rgba(183, 210, 229, 0.8);
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.posts-preview-table th {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  color: #8dabc4;
+  text-align: left;
+  padding: 12px 20px;
+}
+
+.posts-preview-table th:nth-child(4) {
+  text-align: right;
+}
+
+.posts-preview-table tr {
+  border-bottom: 1px solid #d8e5ee;
+}
+
+.posts-preview-table td {
+  padding: 12px 20px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #3f536e;
+}
+
+.posts-preview-table td img {
+  display: flex;
+  object-fit: contain;
+  margin-left: auto;
+}
+
+.posts-preview-table .actions {
+  display: flex;
+  gap: 21px;
+  align-items: center;
 }

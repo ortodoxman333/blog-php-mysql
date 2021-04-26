@@ -12,5 +12,13 @@
 
 <header class="headerr">
     <h2 class="blog-title">Blog menagment</h2>
-    <button onclick="document.location='index.php'" type="submit" class="return-btn" name="return-btn">Return to blog</button>
+    <div>
+        <button onclick="document.location='add_post.php'" type="submit" class="new-post-btn" name="new-post-btn">
+            <img src="edit_white.png" />
+            <span>New Blog Post</span>
+        </button>
+    </div>
+    <div>
+        <button onclick="document.location='server.php?logout=true'" type="submit" class="logout-btn" name="logout-btn">Logout</button>
+    </div>
 </header>

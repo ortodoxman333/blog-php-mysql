@@ -2,11 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "moja baza";
+$db_name = "moja baza";
 
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
-}
+$db = mysqli_connect($servername, $username, $password, $db_name);
+?>
