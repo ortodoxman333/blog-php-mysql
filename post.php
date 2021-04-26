@@ -42,7 +42,7 @@ if (!isset($_SESSION['username'])) {
                 <a href="edit_post.php?id=<?php echo $row['id']; ?>" class="edit">
                     <img src="edit.png" alt="Edit" style="width:14px;height:14px;" />
                 </a>
-                <a onclick="confirmDelete(<?php echo $row['id']; ?>)" class="delete">
+                <a onclick="confirmDelete(<?php echo $row['id']; ?>)" class="delete" style="cursor: pointer;">
                     <img src="delete.png" alt="Delete" style="width:10px;height:13px;" />
                 </a>
             </td>

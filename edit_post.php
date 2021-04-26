@@ -57,21 +57,39 @@ while ($res = mysqli_fetch_array($result)) {
         </div>
         <div>
             <label class="image-title">Featured Image</label>
-            <img class="img-place" name="imageurl" id="blah" src="image.png" alt="photoLogo" width="234" height="168" />
-            <input class="img-placee" type="file" onchange="document.getElementById('blah').
-             src = window.URL.createObjectURL(this.files[0])">
-            <a href="#" class="publish">Select Image</a>
-            <a href="#" class="publish1">Remove Image</a>
+            <img id="preview-image" class="img-place" name="imageurl" src="image.png" alt="javascript.png" width="234" height="168" />
+
+            <label for="file-input">
+                <input class="img-placee" id="file-input" style="display: none;" type="file" name="imagefile" onchange="document.getElementById('preview-image').
+ src = window.URL.createObjectURL(this.files[0])">
+                <a class="publish" style="cursor: pointer;">Select Image</a>
+            </label>
+
+            <a id="remove-image" class="publish1" style="cursor: pointer;">Remove Image</a>
 
         </div>
+
         <div>
             <button onclick="document.location='post.php'" type="button" class="btn_cancel" name="cancel_button">Cancel</button>
         </div>
         <div>
-            <button type="submit" class="btn_publish" name="update">Update Post</button>
+            <button type="submit" class="btn_publish" name="update">
+                <img src="edit_white.png" />
+                <span>Update Post</span>
+            </button>
         </div>
 
     </form>
 </body>
+<script>
+    const removeImageEl = document.getElementById('remove-image');
+    const previewImageEl = document.getElementById('preview-image');
+
+    function onClick(e) {
+        previewImageEl.setAttribute('src', 'image.png');
+    }
+
+    removeImageEl.addEventListener('click', onClick);
+</script>
 
 </html>

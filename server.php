@@ -83,14 +83,12 @@ if (isset($_POST['save'])) {
     $content = $_POST['content'];
     $date = $_POST['date'];
     $image = $_FILES['imagefile']['tmp_name'];
-    //$name = $_FILES['imagefile']['name'];
     $type = $_FILES['imagefile']['type'];
     header('Content-Type: application/json');
     $image = 'data:' . $type . ';base64,' . base64_encode(file_get_contents($image));
-    // echo json_encode(['type' => $type, 'image' => $image]);
-    // die;
-    // $image = file_get_contents(addslashes($_FILES['image']['tmp_name']));
-    mysqli_query($db, "INSERT INTO posts(title, content, date, imageURL, type) 
+   
+   
+   mysqli_query($db, "INSERT INTO posts(title, content, date, imageURL, type) 
     VALUES('$title', '$content', '$date', '$image','$type')");
     $_SESSION['message'] = "Post is saved.";
     header('location: post.php');

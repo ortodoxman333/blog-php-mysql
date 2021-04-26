@@ -167,7 +167,7 @@ content {
 
   color: #2c405a;
 }
-/*post page */
+/*add_post page */
 
 .page-title {
   position: absolute;
@@ -313,7 +313,7 @@ content {
   height: 36px;
   left: 68%;
   right: 22.92%;
-  top: 89.67%;
+  top: 87.67%;
   bottom: 3.69%;
 
   background: #4f4f4f;
@@ -332,7 +332,7 @@ content {
   height: 36px;
   left: 77%;
   right: 22%;
-  top: 89.48%;
+  top: 87.67%;
   bottom: 3.87%;
   color: white;
   background: #4ece3d;
@@ -525,6 +525,7 @@ content {
 
 .pozdrav {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .posts-preview-table {
