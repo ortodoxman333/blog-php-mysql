@@ -1,4 +1,3 @@
-homepage = https://ortodoxman333.github.io/blog-php-mysql;
 <?php
 include 'db.php';
 $query = 'SELECT * FROM posts';
